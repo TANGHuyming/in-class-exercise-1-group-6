@@ -57,7 +57,7 @@ app.post('/upload', (req, res) => {
     form.parse(req, (err, fields, files) => {
       if (err) {
         console.error('❌ Form parse error:', err);
-        return res.status(400).render('result', {
+        return res.status(400).render('dashboard', {
           type: 'error',
           message: 'Error parsing form data.',
         });
@@ -67,18 +67,18 @@ app.post('/upload', (req, res) => {
          EXTRACT FIELDS
       ============================================ */
 
-      const itemName = fields.itemName?.[0];
+      const itemName = fields.name?.[0];
       const description = fields.desc?.[0];
       const location = fields.location?.[0];
       const date = fields.date?.[0];
-      const email = fields.email?.[0];
+      const contact = fields.contact?.[0];
 
       /* ============================================
          VALIDATE FIELDS
       ============================================ */
 
-      if (!itemName || !description || !location || !date || !email) {
-        return res.status(400).render('result', {
+      if (!itemName || !description || !location || !date || !contact) {
+        return res.status(400).render('dashboard', {
           type: 'error',
           message: 'All fields are required.',
         });
@@ -131,7 +131,7 @@ app.post('/upload', (req, res) => {
         description,
         location,
         date,
-        email,
+        contact,
         imagePath,
         status: 'Lost',
       };
@@ -146,11 +146,11 @@ app.post('/upload', (req, res) => {
       ============================================ */
 
       res.render('dashboard', 
-    //     {
-    //     type: 'success',
-    //     message: 'Report submitted successfully!',
-    //     report: newReport,
-    //   }
+        {
+        type: 'success',
+        message: 'Report submitted successfully!',
+        report: newReport,
+      }
     );
     });
   } catch (error) {
