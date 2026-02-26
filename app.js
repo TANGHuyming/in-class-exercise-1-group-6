@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const multiparty = require('multiparty');
 const hbs = require('hbs');
+const data = require('./data');
 
 const app = express();
 const PORT = 3000;
@@ -39,6 +40,7 @@ app.get('/dashboard', (req, res) => {
 })
 
 app.get('/items', (req, res) => {
+
     res.render('items')
 })
 
