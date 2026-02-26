@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "express": "^5.2.1",
-    "express-handlebars": "^8.0.6"
+    "express-handlebars": "^8.0.6",
+    "hbs": "^4.2.0",
+    "multiparty": "^4.2.3"
   },
   "scripts": {
     "start": "node app.js"
