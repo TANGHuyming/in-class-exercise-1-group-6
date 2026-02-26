@@ -23,6 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 // Middleware to parse application/json payloads (Fetch API demos)
 app.use(express.json());
 
+// disable x-powered-by
+app.disable('x-powered-by')
+
 app.get('/', (req, res) => {
     res.render('index')
 })
