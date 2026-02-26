@@ -1,0 +1,33 @@
+<div style="padding: 20px;">
+  <h2>Records Dashboard</h2>
+
+  <div style="margin: 20px 0; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+    
+    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+      <thead>
+        <tr style="background-color: #333; color: white;">
+          <th style="padding: 10px; text-align: left;">ID</th>
+          <th style="padding: 10px; text-align: left;">NAME</th>
+          <th style="padding: 10px; text-align: center;">DATE</th>
+          <th style="padding: 10px; text-align: center;">STATUS</th>
+          <th style="padding: 10px; text-align: center;">DETAIL</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {{#each data}}
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">{{this.id}}</td>
+            <td style="padding: 10px;">{{this.name}}</td>
+            <td style="padding: 10px; text-align: center;">{{this.date}}</td>
+            <td style="padding: 10px; text-align: center;">{{this.status}}</td>
+            <td style="padding: 10px; text-align: center;">
+                <a href="/items/{{this.id}}">View Details</a>
+            </td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  </div>
+</div>

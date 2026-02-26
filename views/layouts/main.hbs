@@ -6,6 +6,16 @@
     <title>In class exercise 1</title>
 </head>
 <body>
+
+  {{> header}}
+  
+  {{!-- SECTION: Main content area --}}
+  {{!-- {{{body}}} is triple-braced to allow HTML from child templates --}}
+  <main>
     {{{body}}}
+  </main>
+
+  {{> footer}}
+
 </body>
 </html>
