@@ -4,6 +4,7 @@ const fs = require('fs');
 const multiparty = require('multiparty');
 const data = require('./data');
 const hbs = require('hbs');
+let {data} = require('./data');
 
 const app = express();
 const PORT = 3000;
