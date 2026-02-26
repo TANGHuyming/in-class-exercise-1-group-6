@@ -1,0 +1,36 @@
+{{!-- {
+  id: "unique_string",      // Use Date.now() or a UUID
+  name: "Blue Wallet",
+  description: "Leather wallet with student ID",
+  location: "Library Hall B",
+  date: "2023-10-25",
+  contact: "student@univ.edu",
+  imagePath: "/uploads/filename.jpg",
+  status: "Lost"           // Default: Lost. Others: Found, Closed.
+} --}}
+
+<main>
+    <img src="/public/{{imagePath}}" alt="image of item">
+    <h2>Name: {{name}}</h2>
+    <p>Description: {{description}}</p>
+    <p>Location: {{location}}</p>
+    <p>Date: {{date}}</p>
+    <p>Contact: {{contact}}</p>
+    <p>Status: {{status}}</p>
+    <form action="/items/{{id}}/status" method="POST">
+        <label for="lost">Lost</label>
+        <input type="radio" name="status" id="lost" value="Lost">
+
+        <label for="lost">Found</label>
+        <input type="radio" name="status" id="found" value="Found">
+
+        <label for="lost">Closed</label>
+        <input type="radio" name="status" id="closed" value="Closed">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="/items/{{id}}/delete" method="POST">
+        <button type="submit">Delete Report</button>
+    </form>
+</main>
