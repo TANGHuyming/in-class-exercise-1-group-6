@@ -40,7 +40,7 @@ app.get('/dashboard', (req, res) => {
 })
 
 app.get('/items', (req, res) => {
-
+    
     res.render('items')
 })
 
