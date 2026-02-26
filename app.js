@@ -43,7 +43,7 @@ app.get('/items/:id', (req, res) => {
     // grab url params
     const params = req.params
 
-    console.log(params.id)
+    // console.log(params.id)
 
     // filter data array with the id
     const context = data.find((d) => d.id === params.id)
