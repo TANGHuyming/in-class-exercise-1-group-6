@@ -39,39 +39,9 @@ app.disable('x-powered-by')
 //     res.render('dashboard')
 // })
 
-app.get('/items/:id', (req, res) => {
-    // grab url params
-    const params = req.params
+app.get('/items', (req, res) => {
 
-    console.log(params.id)
-
-    // filter data array with the id
-    const context = data.find((d) => d.id === params.id)
-
-    res.render('items', context)
-})
-
-app.post('/items/:id/status', (req, res) => {
-    // change status of data
-    const params = req.params
-    const body = req.body
-
-    const changedItem = data.find((d) => d.id === params.id)
-    changedItem.status = body.status
-
-    data = data.filter((d) => d.id !== params.id)
-    data.push(changedItem)
-
-    res.redirect(`/items/${params.id}`)
-})
-
-app.post('/items/:id/delete', (req, res) => {
-    const params = req.params
-    
-    // delete the specific data from data array
-    data = data.filter((d) => d.id !== params.id)
-
-    res.redirect('/dashboard')
+    res.render('items')
 })
 
 app.listen(PORT, () => {
