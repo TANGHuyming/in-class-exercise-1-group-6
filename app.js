@@ -24,19 +24,6 @@ app.use(express.urlencoded({ extended: false }));
 // Middleware to parse application/json payloads (Fetch API demos)
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//     res.render('index')
-// })
-
-// app.get('/dashboard', (req, res) => {
-//     res.render('dashboard')
-// })
-
-// app.get('/items', (req, res) => {
-//     res.render('items')
-// })
-
-
 // In-memory reports array 
 const reports = [];
 
