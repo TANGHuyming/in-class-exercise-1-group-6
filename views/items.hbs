@@ -10,14 +10,27 @@
 } --}}
 
 <main>
+    <img src="/public/{{imagePath}}" alt="image of item">
     <h2>Name: {{name}}</h2>
-    <p>{{description}}</p>
-    <p>{{location}}</p>
-    <p>{{date}}</p>
-    <p>{{contact}}</p>
+    <p>Description: {{description}}</p>
+    <p>Location: {{location}}</p>
+    <p>Date: {{date}}</p>
+    <p>Contact: {{contact}}</p>
+    <p>Status: {{status}}</p>
     <form action="/items/{{id}}/status" method="POST">
-        {{#if}}
-        {{/if}}
+        <label for="lost">Lost</label>
+        <input type="radio" name="status" id="lost" value="Lost">
+
+        <label for="lost">Found</label>
+        <input type="radio" name="status" id="found" value="Found">
+
+        <label for="lost">Closed</label>
+        <input type="radio" name="status" id="closed" value="Closed">
+
+        <button type="submit">Submit</button>
     </form>
-    <button type="button">Delete Report</button>
+
+    <form action="/items/{{id}}/delete" method="POST">
+        <button type="submit">Delete Report</button>
+    </form>
 </main>
