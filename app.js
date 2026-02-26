@@ -2,14 +2,11 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const multiparty = require('multiparty');
-const data = require('./data');
 const hbs = require('hbs');
 let {data} = require('./data');
 
 const app = express();
 const PORT = 3000;
-
-const data = require("./data");
 
 console.log(data);
 
@@ -32,18 +29,6 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 // disable x-powered-by
 app.disable('x-powered-by')
-
-// app.get('/', (req, res) => {
-//     res.render('index')
-// })
-
-// app.get('/report', (req, res) => {
-//     res.render('report')
-// })
-
-// app.get('/dashboard', (req, res) => {
-//     res.render('dashboard')
-// })
 
 app.get('/items/:id', (req, res) => {
     // grab url params
@@ -79,14 +64,9 @@ app.post('/items/:id/delete', (req, res) => {
 
     res.redirect('/dashboard')
 })
-app.disable("x-powered-by");
 
 app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/report", (req, res) => {
-  res.render("report");
+  res.render("dashboard");
 });
 
 app.get("/dashboard", (req, res) => {
@@ -118,6 +98,8 @@ app.get("/dashboard", (req, res) => {
 
 app.get("/items", (req, res) => {
   res.render("items");
+}
+        
 // In-memory reports array 
 const reports = [];
 
