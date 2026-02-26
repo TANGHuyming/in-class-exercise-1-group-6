@@ -1,0 +1,222 @@
+{{!-- 
+    REPORT FORM FILE 
+ --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPORT</title>
+
+    <style>
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .input-style {
+            width:100%;
+            padding:10px 16px;
+            border:1px solid #d1d5db;
+            border-radius:8px;
+            outline:none;
+        }
+    </style>
+</head>
+
+<body style="background:#f9fafb;font-family:system-ui, -apple-system, sans-serif;">
+
+<div
+    style="
+        animation: slideIn 0.3s ease-in-out;
+        background:white;
+        border-radius:12px;
+        box-shadow:0 10px 15px rgba(0,0,0,0.1);
+        padding:32px;
+        border-left:6px solid #6366f1;
+        max-width:480px;
+        margin:40px auto;
+    "
+>
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;margin-bottom:24px;">
+        <h2 style="font-size:24px;font-weight:700;color:#1f2937;">
+            🖼️ File Upload
+        </h2>
+        <span
+            style="
+                margin-left:auto;
+                background:#e0e7ff;
+                color:#3730a3;
+                font-size:12px;
+                font-weight:600;
+                padding:4px 12px;
+                border-radius:9999px;
+            "
+        >
+            multipart/form-data
+        </span>
+    </div>
+
+    <p style="color:#4b5563;margin-bottom:24px;font-size:14px;">
+        This form uploads files. The data is sent as multipart chunks,
+        allowing efficient streaming of file content.
+    </p>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+
+        <!-- Item name  -->
+        <div style="margin-bottom:16px;">
+            <label
+                for="file_name"
+                style="display:block;font-size:14px;font-weight:500;color:#374151;margin-bottom:4px;"
+            >
+                Item name   
+            </label>
+            
+            <input
+                class="input-style"
+                type="text"
+                id="file_name"
+                name="name"
+                placeholder=" "
+                required
+            />
+        </div>
+
+        <!-- Description  -->
+        <div style="margin-bottom:16px;">
+            <label
+                for="file_desc"
+                style="display:block;font-size:14px;font-weight:500;color:#374151;margin-bottom:4px;"
+            >
+                Description  
+            </label>
+            
+            <input
+                class="input-style"
+                type="text"
+                id="file_desc"
+                name="desc"
+                placeholder=" "
+                required
+            />
+        </div>
+
+        {{!-- Location Lost --}}
+        <div style="margin-bottom:16px;">
+            <label
+                for="file_loc"
+                style="display:block;font-size:14px;font-weight:500;color:#374151;margin-bottom:4px;"
+            >
+                Location Lost   
+            </label>
+            
+            <input
+                class="input-style"
+                type="text"
+                id="file_loc"
+                name="location"
+                placeholder=" "
+                required
+            />
+        </div>
+
+        <!-- Date  -->
+        <div style="margin-bottom:16px;">
+            <label
+                for="file_date"
+                style="display:block;font-size:14px;font-weight:500;color:#374151;margin-bottom:4px;"
+            >
+                Date
+            </label>
+
+            <input
+                class="input-style"
+                type="date"
+                id="file_date"
+                name="date"
+                required
+            />
+        </div>
+
+        {{!-- Email --}}
+        <div style="margin-bottom:16px;">
+            <label
+                for="file_contact"
+                style="display:block;font-size:14px;font-weight:500;color:#374151;margin-bottom:4px;"
+            >
+                Contact
+            </label>
+
+            <input
+                class="input-style"
+                type="email"
+                id="file_contact"
+                name="contact"
+                placeholder="your@example.com"
+                required
+            />
+        </div>
+
+        <!-- File -->
+        <div style="margin-bottom:16px;">
+            <label
+                for="image"
+                style="display:block;font-size:14px;font-weight:500;color:#374151;margin-bottom:4px;"
+            >
+                Image File (JPG/PNG only)
+            </label>
+
+            <input
+                type="file"
+                id="image"
+                name="image"
+                accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                required
+                style="
+                    width:100%;
+                    padding:10px;
+                    border:1px solid #d1d5db;
+                    border-radius:8px;
+                    background:white;
+                "
+            />
+
+            <p style="font-size:12px;color:#6b7280;margin-top:4px;">
+                ✓ Allowed: JPG, JPEG, PNG | Maximum practical size: 10MB
+            </p>
+        </div>
+
+        <!-- Submit -->
+        <button
+            type="submit"
+            style="
+                width:100%;
+                background:#6366f1;
+                color:white;
+                font-weight:600;
+                padding:10px 16px;
+                border:none;
+                border-radius:8px;
+                cursor:pointer;
+                transition:transform 0.2s, background 0.2s;
+            "
+            onmouseover="this.style.background='#4f46e5'; this.style.transform='scale(1.05)'"
+            onmouseout="this.style.background='#6366f1'; this.style.transform='scale(1)'"
+        >
+            Upload File
+        </button>
+
+    </form>
+</div>
+
+</body>
+</html>
